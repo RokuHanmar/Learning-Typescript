@@ -1,11 +1,13 @@
+//@ts-check
+
 const storage = {
     max : undefined,
     items : []
 };
 
-Object.defineProperty(storage, 'max', { readonly : true, val : 500});
+Object.defineProperty(storage, 'max', { writable : false, value : 500});  // Replaced readonly with writable and val with value
 
-let currentStorage = 'undefined';
+let currentStorage = undefined;  // Removed '' to use the any type
 
 function storageUsed () {
     if (currentStorage) {
@@ -20,8 +22,8 @@ function storageUsed () {
 };
 
 function add(item) {
-    if (storage.max - item.weight >= storageUsed) {
-        storage.items.findLastIndex(item);
+    if (storage.max - item.weight >= storageUsed()) {  // Called storageUsed()
+        storage.items.push(item);  // Replaced add with push
         currentStorage.item.weight;  // Corrected spelling of item
     }
 }
