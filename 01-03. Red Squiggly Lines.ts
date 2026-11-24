@@ -1,5 +1,15 @@
 //@ts-check
 
+/**
+* @typedef {Object} StorageItem
+* @property {number} weight
+* 
+* @typedef {Object} ShipStorage
+* @property {number} max
+* @property {StorageItem[]} items
+*/
+
+/** @type ShipStorage */
 const storage = {
     max : undefined,
     items : []
@@ -21,6 +31,9 @@ function storageUsed () {
     return currentStorage;
 };
 
+/**
+ * @param {StorageItem} item 
+ */
 function add(item) {
     if (storage.max - item.weight >= storageUsed()) {  // Called storageUsed()
         storage.items.push(item);  // Replaced add with push
