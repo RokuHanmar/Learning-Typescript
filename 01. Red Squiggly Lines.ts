@@ -12,8 +12,8 @@ function storageUsed () {
         return currentStorage;
     }
     currentStorage = 0;
-    for (const i = 0; i < storage.length(); i++) {
-        currentStorage += storage.items[i].weigth;
+    for (let i = 0; i < storage.length(); i++) {  // Changed i from constant to variable
+        currentStorage += storage.items[i].weight;  // Corrected spelling of weight
     }
 
     return currentStorage;
@@ -22,6 +22,6 @@ function storageUsed () {
 function add(item) {
     if (storage.max - item.weight >= storageUsed) {
         storage.items.findLastIndex(item);
-        currentStorage.iten.weight;
+        currentStorage.item.weight;  // Corrected spelling of item
     }
 }
