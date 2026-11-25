@@ -2,6 +2,8 @@
 
 /** @typedef { import('./01types.d').ShipStorage} ShipStorage */
 /** @typedef { import('./01types.d').StorageItem} StorageItem */
+/** @typedef { import('./ambients.d').isDevelopment} isDevelopment */
+
 /** @type ShipStorage */
 const storage = {
     max : undefined,
@@ -31,5 +33,10 @@ function add(item) {
     if (storage.max - item.weight >= storageUsed()) {  // Called storageUsed()
         storage.items.push(item);  // Replaced add with push
         currentStorage.item.weight;  // Corrected spelling of item
+    }
+    if (isDevelopment) {
+        const itemCount = storage.items.length;
+        console.log(`${itemCount} items`);
+        console.log(`${currentStorage}kg total`);
     }
 }
