@@ -1,0 +1,7 @@
+function addVAT(price: number, vat = 0.2) {
+    return price * (1 + vat);
+}
+
+const vatPrice = addVAT(10, 0.2);
+const vatPriceWithDefault = addVAT(30);
+
